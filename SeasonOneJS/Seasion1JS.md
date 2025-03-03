@@ -11,10 +11,13 @@ _kmkmk_
 ===========
 > 123 mkjkjnkjnkj  
 ===========
+
 # undefined vs not defined
-### undefined
+
+## undefined
 -undefined is a special key word, that represents respective variable is not assigned any value 
 -undefined not empty it takes place until the value is assigned  
+
 ```javascript
 var a;
 console.log(a)//undefined
@@ -23,12 +26,15 @@ console.log(a)//10
 a = "hello"
 console.log(a)//hello
 ```
+
 -javascript is a loosely typed language, with var declared variables we can assign different data types to same variable
 -also called weekly typed language and more flexible language
 -never assign undefined to any variable it not good practice 
 
-### not defined
+## not defined
+
 -it means you have not declared any variable but you are trying to access unknown one
+
 ```javascript
 var a;
 console.log(x)//x is not defined because js did not allocate any memory to x as we have not declared 
@@ -62,6 +68,7 @@ a()
     GC-->a's EC -- > b's EC   
 
 ## Lexical Environment  
+
 ```javascript
 function a(){
     var b= 10
@@ -93,7 +100,9 @@ a()
  **The process of searching for a variable or memory is called scope chain**
 
 # Let and Const and Temporal dead zone   
+
 ## Temporal dead zone 
+
  - let & const declarations are hoisted, but they are differently 
  - those are in temporal dead zone for time being
 
@@ -112,6 +121,7 @@ a()
   console.log(a)
  var b= 100;
  ```
+ 
 - but if you try to access it after 'a' declaration you will get value printed in the console, memory attached to global scope
 - In the memory allocation both a and b are allocated memory and placed undefined in it 
 - but var b is in the global memory, in case of let and const they are stored in different memory space, we cannot access them before we put some values in it. that's how hoisting works for them 
@@ -200,4 +210,107 @@ a = 1000 //TypeError: Assignment to constant variable
  -- after use let because we cannot run into temporal dead zone because let variables are in temporal dead zone
  -- use var very less in the day to day coding 
  -- to avoid temporal dead zone declaration/initializations put all the variables at the top of the scope 
- -- that means we are shrinking temporal dead zone to zero.
+ -- that means we are shrinking temporal dead zone to zero.  
+
+ # Block Scope and Shadowing in JS  
+
+ -- block is {  }
+ -- block is also known as combined statement 
+```javascript
+    const a = 100;
+    console.log(a)
+ ```
+--above code grouping multiple statements together, where javascript expects one statement
+```javascript
+    if(true) console.log(true);
+    //if expects one statement here above code is perfectly valid one statement
+ ```
+ ```javascript
+    if(true){
+        const a = 100;
+        console.log(a)
+    }
+    //when we have to execute multiple statements we need block to group them in to group where js expects single statement 
+    //that is what block in the above code
+ ```
+
+## block scope
+- what all the elements accessible inside the { } block scoped.
+
+ ```javascript
+   {
+    var a = 10;
+    let b = 100;
+    const c = 1000;
+    console.log(a)//10
+    console.log(b)//100
+    console.log(c)//1000
+   }
+   console.log(a)//10 we have accessed because it is in the global scope
+    console.log(b)// Uncaught ReferenceError: b is not defined
+    console.log(c)
+  
+ ```
+- in if we run above code in the hoisting var kept in the global scope and let and const are in different memory
+- we can access var a variable outside the above block but cannot access let and const because they were block scoped variables in this context  
+
+## shadowing
+-if we have same named variable outside the block is called shadowing
+ ```javascript
+    var a  = 1000
+   {
+    var a = 10;//this variable shadowing outside block a variable
+    // in the scope both a variables points to same reference in the global scope 
+    //first it allocated 1000 to a and then allocates 10 to it
+    let b = 100;
+    const c = 1000;
+    console.log(a)//10
+    console.log(b)//100
+    console.log(c)//1000
+   }  
+   console.log(a)//10
+ ```
+ - in the case of let
+
+ ```javascript
+    let b  = 1000// it stored in a different scope
+   {
+    var a = 10;//stored in global scope
+    let b = 100;// shadowed above b
+    const c = 1000;
+    //both b and c are stored in block scope
+    console.log(a)//10
+    console.log(b)//100
+    console.log(c)//1000
+   }  
+   console.log(b)//1000
+   //accessed from separate memory
+   console.log(a)//accessed from global scope
+   //outside the scope it has not shadowed in the case of let
+ ```
+ - in the case of const it will behave same 
+ - in case function scope also it behaves same
+## illegal shadowing
+  ```javascript
+    let a  = 1000
+   {
+    var a = 10 // syntaxError: identifier 'a' has already been declared
+   }  
+   
+ ```
+ 
+
+```javascript
+    let a  = 1000
+   {
+    let a = 10 // it perfectly works
+   }  
+   
+```
+```javascript
+    var a  = 1000
+   {
+    let a = 10 // it perfectly works
+   }  
+   
+ ```
