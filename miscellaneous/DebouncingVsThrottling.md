@@ -2,7 +2,7 @@
 
 ## debouncing
 
--Debouncing ensures that a function is called only after a certain period of inactivity. If the event is triggered again before the delay period is over, the timer resets.
+- Debouncing ensures that a function is called only after a certain period of inactivity. If the event is triggered again before the delay period is over, the timer resets.
 
 ```javascript
 function debounce(fn, delay) {

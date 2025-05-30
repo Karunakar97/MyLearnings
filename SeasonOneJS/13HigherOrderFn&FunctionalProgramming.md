@@ -1,16 +1,19 @@
 # Higher order functions
+
 - A function which takes another function as an argument or returns a function from itself are a the higher order function
 - A function which can be passed as an argument another function are call back function that can be called late in the code
 
 ```javascript
-function x(){
-    console.log('namaste')
+function x() {
+  console.log("namaste");
 }
-function y(x){
-    x()
+function y(x) {
+  x();
 }
 ```
+
 ## example
+
 - calculate area of the radiuses
 
 ```javascript
@@ -47,7 +50,7 @@ const calculateDiameter = function (radius){
 
 console.log(calculateDiameter(radius))
 
-- above examples have almost same code we should not repeat the same in software 
+- above examples have almost same code we should not repeat the same in software
 - we need to optimize
 
 const radius = [3,1,2,4]
@@ -57,11 +60,11 @@ const area = function(radius)=>{
 }
 
 const circumference = function(radius)=>{
-    return Math.PI * radius 
+    return Math.PI * radius
 }
 
 const diameter = function(radius)=>{
-    return 2 * radius 
+    return 2 * radius
 }
 
 const calculate = function (arr, logic){
@@ -76,7 +79,7 @@ console.log(calculate(radius, area))
 console.log(calculate(radius, circumference))
 console.log(calculate(radius, diameter))
 
-console.log(radius.map(area))//map is also higher order function it returns same 
+console.log(radius.map(area))//map is also higher order function it returns same
 
 - how does map work?
 
