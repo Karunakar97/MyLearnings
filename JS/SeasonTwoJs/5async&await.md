@@ -164,6 +164,7 @@ handlePromise();
 async function handlePromise() {
   const GITHUB_API = "https://randomuser.me/api/?results=10";
   const val = await fetch(GITHUB_API);
+  // fetch returns promise object
   // fetch is a promise this gives response that is un readable stream
   // .json() to convert to json value
   const jsonValue = await val.json(); // .json() is again promise
