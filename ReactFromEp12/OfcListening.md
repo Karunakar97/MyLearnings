@@ -4,6 +4,8 @@
 
 - we can create variable in class like this.name = ''
 
+<hr style="height:1px; background-color:#ccc; border:none;" />
+
 # EP9 - optimizing application
 
 - single principle method:-
@@ -29,20 +31,23 @@
 - we have to wrap that component in Suspense from react to catch the bundling time
 - ex:- when we click on grocery then only we bundle it
 - ex:- const Grocery = lazy(() => import("./src/Components/Grocery"));
-  {
-  path: "/grocery",
-  element: (
-  <Suspense fallback={<h1>Loading....!</h1>}>
-  <Grocery />
-  </Suspense>
-  ),
-  },
+{
+path: "/grocery",
+element: (
+<Suspense fallback={<h1>Loading....!</h1>}>
+<Grocery />
+</Suspense>
+),
+},
+<hr style="height:1px; background-color:#ccc; border:none;" />
 
 # EP 10
 
 - app styling
 - companies use material ui, styled components, ant design and different css libraries
 - tailwind installation and applying like bootstrap
+
+<hr style="height:1px; background-color:#ccc; border:none;" />
 
 # EP 11
 
@@ -68,6 +73,8 @@
 - context comes with react we can use it with small and mid level applications
 - redux is third party application we use it in large scale application also it provides middleware features like thunk and stores
 - both can be fine
+
+<hr style="height:1px; background-color:#ccc; border:none;" />
 
 # EP 12
 
