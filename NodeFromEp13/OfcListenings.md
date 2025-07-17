@@ -43,3 +43,38 @@
 - majority companies using it now for large projects
 - it has pros and cons
 - all applications talks using api's
+
+<hr style="height:1px; background-color:#ccc; border:none;" />
+
+# EP 15
+
+## Building DevTinder application
+
+## Features, HLD, LLD and Planning
+
+- without proper planning we may need to restructure our code many time
+- Get project planned first then development will be easy
+
+### step one
+
+- We need to plan define features first
+- In DevTinder application lets build Sign up, login, update profile, feed page -explore , send connection request,
+- see our matches , see the requests we sent
+
+### step two
+
+- DB plan, Collections/tables, schema we need(data types, length, default, mandatory etc), think about api's/services
+- so that we don't need to change in the feature in few db's changing schema is hard
+- In our DevTinder we need collections like, User(dedicated to user personal details),
+- Connection Request(dedicated to connection information, who sent to whom and status of it) it's kind of relation collection
+- Feed(what we will show in the feed)
+
+### step three
+
+- Plan services
+- REST API's - Representational State Transfer (Application Programming Interface)
+- Set of rules to communicate between two applications like front end app to backend app or db
+- EX: The web apps using HTTP methods like GET, POST, PUT, DELETE, PATCH etc methods often transfers JSON data
+- We would be needing different api's
+- signUpUser(POST), loginUser, getUser(GET), updateUser(PUT/PATCH), deleteUser(DELETE)
+- sendRequest, reviewRequest, deleteRequest, getAllRequests
