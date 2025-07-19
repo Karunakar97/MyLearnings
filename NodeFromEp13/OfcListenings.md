@@ -78,3 +78,38 @@
 - We would be needing different api's
 - signUpUser(POST), loginUser, getUser(GET), updateUser(PUT/PATCH), deleteUser(DELETE)
 - sendRequest, reviewRequest, deleteRequest, getAllRequests
+
+<hr style="height:1px; background-color:#ccc; border:none;" />
+
+# EP 16
+
+## DevTinder Start
+
+### create project
+
+- create backend code folder and open with vs code and run npm init in terminal and setup package.json
+- create src folder and app.js in it it will be the entry of our application
+
+### express server
+
+- install express you will get all the dependencies of express in node modules
+- versions ex 2.1.3 here why usually versions maintain three numbers because they say released version importance
+- first number is major, second is minor, third is patch, so based on version others will understand and upgrade
+- and there are ^ caret symbol before packages it means it will automatically update to latest version
+- ~ tilde symbol upgrades to latest patches only
+
+####
+
+- after installation in app.js take express instance and create server listen on port and try using server
+- test with different paths like app.use('/test',(req, res)=>{
+  res.send('test')
+  })
+- app.use accepts route path and call back function and the function accepts request and response
+- from req we can see the requested object and from response we can send res.send(return value)
+
+####
+
+- when we change something in our code it does not refresh the server
+- to automatically refresh the server install nodemon globally so run using it instead of node src/app.js use nodemon src/app.js
+- to make it little easy add scripts to package.json like for dev mode add dev: nodemon src/app.js for other start:node src/app.js
+- now use npm run dev so it will call nodemon src/app.js behind the scenes
